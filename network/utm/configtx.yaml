@@ -1182,34 +1182,34 @@ Profiles:
                 Organizations:
                     - *Org1
                     - *Org2
-                    # - *Org3
-                    # - *Org4
-                    # - *Org5
-                    # - *Org6
-                    # - *Org7
-                    # - *Org8
-                    # - *Org9
-                    # - *Org10
-                    # - *Org11
-                    # - *Org12
-                    # - *Org13
-                    # - *Org14
-                    # - *Org15
-                    # - *Org16
-                    # - *Org17
-                    # - *Org18
-                    # - *Org19
-                    # - *Org20
-                    # - *Org21
-                    # - *Org22
-                    # - *Org23
-                    # - *Org24
-                    # - *Org25
-                    # - *Org26
-                    # - *Org27
-                    # - *Org28
-                    # - *Org29
-                    # - *Org30
+                    - *Org3
+                    - *Org4
+                    - *Org5
+                    - *Org6
+                    - *Org7
+                    - *Org8
+                    - *Org9
+                    - *Org10
+                    - *Org11
+                    - *Org12
+                    - *Org13
+                    - *Org14
+                    - *Org15
+                    - *Org16
+                    - *Org17
+                    - *Org18
+                    - *Org19
+                    - *Org20
+                    - *Org21
+                    - *Org22
+                    - *Org23
+                    - *Org24
+                    - *Org25
+                    - *Org26
+                    - *Org27
+                    - *Org28
+                    - *Org29
+                    - *Org30
     TwoOrgsChannel:
         Consortium: SampleConsortium
         Application:
@@ -1217,33 +1217,33 @@ Profiles:
             Organizations:
                 - *Org1
                 - *Org2
-                # - *Org3
-                # - *Org4
-                # - *Org5
-                # - *Org6
-                # - *Org7
-                # - *Org8
-                # - *Org9
-                # - *Org10
-                # - *Org11
-                # - *Org12
-                # - *Org13
-                # - *Org14
-                # - *Org15
-                # - *Org16
-                # - *Org17
-                # - *Org18
-                # - *Org19
-                # - *Org20
-                # - *Org21
-                # - *Org22
-                # - *Org23
-                # - *Org24
-                # - *Org25
-                # - *Org26
-                # - *Org27
-                # - *Org28
-                # - *Org29
-                # - *Org30
+                - *Org3
+                - *Org4
+                - *Org5
+                - *Org6
+                - *Org7
+                - *Org8
+                - *Org9
+                - *Org10
+                - *Org11
+                - *Org12
+                - *Org13
+                - *Org14
+                - *Org15
+                - *Org16
+                - *Org17
+                - *Org18
+                - *Org19
+                - *Org20
+                - *Org21
+                - *Org22
+                - *Org23
+                - *Org24
+                - *Org25
+                - *Org26
+                - *Org27
+                - *Org28
+                - *Org29
+                - *Org30
             Capabilities:
                 <<: *ApplicationCapabilities

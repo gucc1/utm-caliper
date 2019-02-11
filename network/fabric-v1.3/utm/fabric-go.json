@@ -36,14 +36,434 @@
         "mspid": "Org2MSP",
         "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org2.example.com/msp/",
         "ca": {
-          "url": "http://localhost:8054",
+          "url": "http://localhost:7154",
           "name": "ca.org2.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7151",
+          "events": "grpc://localhost:7153",
+          "server-hostname": "peer0.org2.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
+        }
+      },
+      "org3": {
+        "name": "peerOrg3",
+        "mspid": "Org3MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org3.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7254",
+          "name": "ca.org3.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7251",
+          "events": "grpc://localhost:7253",
+          "server-hostname": "peer0.org3.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt"
+        }
+      },
+      "org4": {
+        "name": "peerOrg4",
+        "mspid": "Org4MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org4.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7354",
+          "name": "ca.org4.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7351",
+          "events": "grpc://localhost:7353",
+          "server-hostname": "peer0.org4.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt"
+        }
+      },
+      "org5": {
+        "name": "peerOrg5",
+        "mspid": "Org5MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org5.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7454",
+          "name": "ca.org5.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7451",
+          "events": "grpc://localhost:7453",
+          "server-hostname": "peer0.org5.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org5.example.com/peers/peer0.org5.example.com/tls/ca.crt"
+        }
+      },
+      "org6": {
+        "name": "peerOrg6",
+        "mspid": "Org6MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org6.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7554",
+          "name": "ca.org6.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7551",
+          "events": "grpc://localhost:7553",
+          "server-hostname": "peer0.org6.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org6.example.com/peers/peer0.org6.example.com/tls/ca.crt"
+        }
+      },
+      "org7": {
+        "name": "peerOrg7",
+        "mspid": "Org7MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org7.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7654",
+          "name": "ca.org7.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7651",
+          "events": "grpc://localhost:7653",
+          "server-hostname": "peer0.org7.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org7.example.com/peers/peer0.org7.example.com/tls/ca.crt"
+        }
+      },
+      "org8": {
+        "name": "peerOrg8",
+        "mspid": "Org8MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org8.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7754",
+          "name": "ca.org8.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7751",
+          "events": "grpc://localhost:7753",
+          "server-hostname": "peer0.org8.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org8.example.com/peers/peer0.org8.example.com/tls/ca.crt"
+        }
+      },
+      "org9": {
+        "name": "peerOrg9",
+        "mspid": "Org9MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org9.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7854",
+          "name": "ca.org9.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7851",
+          "events": "grpc://localhost:7853",
+          "server-hostname": "peer0.org9.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org9.example.com/peers/peer0.org9.example.com/tls/ca.crt"
+        }
+      },
+      "org10": {
+        "name": "peerOrg10",
+        "mspid": "Org10MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org10.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7954",
+          "name": "ca.org10.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:7951",
+          "events": "grpc://localhost:7953",
+          "server-hostname": "peer0.org10.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org10.example.com/peers/peer0.org10.example.com/tls/ca.crt"
+        }
+      },
+      "org11": {
+        "name": "peerOrg11",
+        "mspid": "Org11MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org11.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8054",
+          "name": "ca.org11.example.com"
         },
         "peer1": {
           "requests": "grpc://localhost:8051",
           "events": "grpc://localhost:8053",
-          "server-hostname": "peer0.org2.example.com",
-          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
+          "server-hostname": "peer0.org11.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org11.example.com/peers/peer0.org11.example.com/tls/ca.crt"
+        }
+      },
+      "org12": {
+        "name": "peerOrg12",
+        "mspid": "Org12MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org12.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8154",
+          "name": "ca.org12.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8151",
+          "events": "grpc://localhost:8153",
+          "server-hostname": "peer0.org12.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org12.example.com/peers/peer0.org12.example.com/tls/ca.crt"
+        }
+      },
+      "org13": {
+        "name": "peerOrg13",
+        "mspid": "Org13MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org13.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8254",
+          "name": "ca.org13.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8251",
+          "events": "grpc://localhost:8253",
+          "server-hostname": "peer0.org13.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org13.example.com/peers/peer0.org13.example.com/tls/ca.crt"
+        }
+      },
+      "org14": {
+        "name": "peerOrg14",
+        "mspid": "Org14MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org14.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8354",
+          "name": "ca.org14.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8351",
+          "events": "grpc://localhost:8353",
+          "server-hostname": "peer0.org14.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org14.example.com/peers/peer0.org14.example.com/tls/ca.crt"
+        }
+      },
+      "org15": {
+        "name": "peerOrg15",
+        "mspid": "Org15MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org15.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8454",
+          "name": "ca.org15.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8451",
+          "events": "grpc://localhost:8453",
+          "server-hostname": "peer0.org15.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org15.example.com/peers/peer0.org15.example.com/tls/ca.crt"
+        }
+      },
+      "org16": {
+        "name": "peerOrg16",
+        "mspid": "Org16MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org16.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8554",
+          "name": "ca.org16.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8551",
+          "events": "grpc://localhost:8553",
+          "server-hostname": "peer0.org16.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org16.example.com/peers/peer0.org16.example.com/tls/ca.crt"
+        }
+      },
+      "org17": {
+        "name": "peerOrg17",
+        "mspid": "Org17MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org17.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8654",
+          "name": "ca.org17.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8651",
+          "events": "grpc://localhost:8653",
+          "server-hostname": "peer0.org17.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org17.example.com/peers/peer0.org17.example.com/tls/ca.crt"
+        }
+      },
+      "org18": {
+        "name": "peerOrg18",
+        "mspid": "Org18MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org18.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8754",
+          "name": "ca.org18.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8751",
+          "events": "grpc://localhost:8753",
+          "server-hostname": "peer0.org18.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org18.example.com/peers/peer0.org18.example.com/tls/ca.crt"
+        }
+      },
+      "org19": {
+        "name": "peerOrg19",
+        "mspid": "Org19MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org19.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8854",
+          "name": "ca.org19.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8851",
+          "events": "grpc://localhost:8853",
+          "server-hostname": "peer0.org19.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org19.example.com/peers/peer0.org19.example.com/tls/ca.crt"
+        }
+      },
+      "org20": {
+        "name": "peerOrg20",
+        "mspid": "Org20MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org20.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:8954",
+          "name": "ca.org20.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:8951",
+          "events": "grpc://localhost:8953",
+          "server-hostname": "peer0.org20.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org20.example.com/peers/peer0.org20.example.com/tls/ca.crt"
+        }
+      },
+      "org21": {
+        "name": "peerOrg21",
+        "mspid": "Org21MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org21.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9054",
+          "name": "ca.org21.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9051",
+          "events": "grpc://localhost:9053",
+          "server-hostname": "peer0.org21.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org21.example.com/peers/peer0.org21.example.com/tls/ca.crt"
+        }
+      },
+      "org22": {
+        "name": "peerOrg22",
+        "mspid": "Org22MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org22.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9154",
+          "name": "ca.org22.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9151",
+          "events": "grpc://localhost:9153",
+          "server-hostname": "peer0.org22.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org22.example.com/peers/peer0.org22.example.com/tls/ca.crt"
+        }
+      },
+      "org23": {
+        "name": "peerOrg23",
+        "mspid": "Org23MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org23.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9254",
+          "name": "ca.org23.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9251",
+          "events": "grpc://localhost:9253",
+          "server-hostname": "peer0.org23.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org23.example.com/peers/peer0.org23.example.com/tls/ca.crt"
+        }
+      },
+      "org24": {
+        "name": "peerOrg24",
+        "mspid": "Org24MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org24.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9354",
+          "name": "ca.org24.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9351",
+          "events": "grpc://localhost:9353",
+          "server-hostname": "peer0.org24.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org24.example.com/peers/peer0.org24.example.com/tls/ca.crt"
+        }
+      },
+      "org25": {
+        "name": "peerOrg25",
+        "mspid": "Org25MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org25.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9454",
+          "name": "ca.org25.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9451",
+          "events": "grpc://localhost:9453",
+          "server-hostname": "peer0.org25.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org25.example.com/peers/peer0.org25.example.com/tls/ca.crt"
+        }
+      },
+      "org26": {
+        "name": "peerOrg26",
+        "mspid": "Org26MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org26.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9554",
+          "name": "ca.org26.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9551",
+          "events": "grpc://localhost:9553",
+          "server-hostname": "peer0.org26.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org26.example.com/peers/peer0.org26.example.com/tls/ca.crt"
+        }
+      },
+      "org27": {
+        "name": "peerOrg27",
+        "mspid": "Org27MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org27.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9654",
+          "name": "ca.org27.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9651",
+          "events": "grpc://localhost:9653",
+          "server-hostname": "peer0.org27.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org27.example.com/peers/peer0.org27.example.com/tls/ca.crt"
+        }
+      },
+      "org28": {
+        "name": "peerOrg28",
+        "mspid": "Org28MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org28.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9754",
+          "name": "ca.org28.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9751",
+          "events": "grpc://localhost:9753",
+          "server-hostname": "peer0.org28.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org28.example.com/peers/peer0.org28.example.com/tls/ca.crt"
+        }
+      },
+      "org29": {
+        "name": "peerOrg29",
+        "mspid": "Org29MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org29.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9854",
+          "name": "ca.org29.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9851",
+          "events": "grpc://localhost:9853",
+          "server-hostname": "peer0.org29.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org29.example.com/peers/peer0.org29.example.com/tls/ca.crt"
+        }
+      },
+      "org30": {
+        "name": "peerOrg30",
+        "mspid": "Org30MSP",
+        "msp": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org30.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:9954",
+          "name": "ca.org30.example.com"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9951",
+          "events": "grpc://localhost:9953",
+          "server-hostname": "peer0.org30.example.com",
+          "tls_cacerts": "network/fabric-v1.3/config/crypto-config/peerOrganizations/org30.example.com/peers/peer0.org30.example.com/tls/ca.crt"
         }
       }
     },
@@ -52,7 +472,38 @@
         "name": "mychannel",
         "deployed": false,
         "config": "network/fabric-v1.3/config/mychannel.tx",
-        "organizations": ["org1", "org2"]
+        "organizations": [
+          "org1",
+          "org2",
+          "org3",
+          "org4",
+          "org5",
+          "org6",
+          "org7",
+          "org8",
+          "org9",
+          "org10",
+          "org11",
+          "org12",
+          "org13",
+          "org14",
+          "org15",
+          "org16",
+          "org17",
+          "org18",
+          "org19",
+          "org20",
+          "org21",
+          "org22",
+          "org23",
+          "org24",
+          "org25",
+          "org26",
+          "org27",
+          "org28",
+          "org29",
+          "org30"
+        ]
       }
     ],
     "chaincodes": [
@@ -77,9 +528,211 @@
             "name": "member",
             "mspId": "Org2MSP"
           }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org3MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org4MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org5MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org6MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org7MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org8MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org9MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org10MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org11MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org12MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org13MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org14MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org15MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org16MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org17MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org18MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org19MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org20MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org21MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org22MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org23MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org24MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org25MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org26MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org27MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org28MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org29MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org30MSP"
+          }
         }
       ],
-      "policy": { "2-of": [{ "signed-by": 0 }, { "signed-by": 1 }] }
+      "policy": {
+        "30-of": [
+          { "signed-by": 0 },
+          { "signed-by": 1 },
+          { "signed-by": 2 },
+          { "signed-by": 3 },
+          { "signed-by": 4 },
+          { "signed-by": 5 },
+          { "signed-by": 6 },
+          { "signed-by": 7 },
+          { "signed-by": 8 },
+          { "signed-by": 9 },
+          { "signed-by": 10 },
+          { "signed-by": 11 },
+          { "signed-by": 12 },
+          { "signed-by": 13 },
+          { "signed-by": 14 },
+          { "signed-by": 15 },
+          { "signed-by": 16 },
+          { "signed-by": 17 },
+          { "signed-by": 18 },
+          { "signed-by": 19 },
+          { "signed-by": 20 },
+          { "signed-by": 21 },
+          { "signed-by": 22 },
+          { "signed-by": 23 },
+          { "signed-by": 24 },
+          { "signed-by": 25 },
+          { "signed-by": 26 },
+          { "signed-by": 27 },
+          { "signed-by": 28 },
+          { "signed-by": 29 },
+          { "signed-by": 30 }
+        ]
+      }
     },
     "context": {
       "invoke": "mychannel"
