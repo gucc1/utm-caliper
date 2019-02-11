@@ -1,0 +1,48 @@
+---
+test:
+  name: utm
+  description: Evaluation UTM
+  clients:
+    type: local
+    number: 5
+  rounds:
+    - label: invoke
+      txNumber:
+        - 1000
+        - 1000
+        - 1000
+      rateControl:
+        - type: fixed-rate
+          opts:
+            tps: 1
+        - type: fixed-rate
+          opts:
+            tps: 5
+        - type: fixed-rate
+          opts:
+            tps: 10
+        - type: fixed-rate
+          opts:
+            tps: 50
+        - type: fixed-rate
+          opts:
+            tps: 100
+        - type: fixed-rate
+          opts:
+            tps: 500
+        - type: fixed-rate
+          opts:
+            tps: 1000
+      callback: benchmark/utm/invoke.js
+monitor:
+  type:
+    - docker
+    - process
+  docker:
+    name:
+      - all
+  process:
+    - command: node
+      arguments: local-client.js
+      multiOutput: avg
+  interval: 1
