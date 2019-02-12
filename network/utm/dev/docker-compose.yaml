@@ -1,4 +1,4 @@
-version: '2'
+version: '2.2'
 
 services:
   ca.org1.example.com:
