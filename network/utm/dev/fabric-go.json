@@ -36,8 +36,8 @@
         "mspid": "Org2MSP",
         "msp": "network/utm/config/crypto-config/peerOrganizations/org2.example.com/msp/",
         "ca": {
-          "url": "http://localhost:7254",
-          "name": "ca.org2.example.com"
+          "url": "http://localhost:7154",
+          "name": "ca.org1.example.com"
         },
         "peer1": {
           "requests": "grpc://localhost:7251",

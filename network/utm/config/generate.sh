@@ -4,6 +4,9 @@
 # export FABRIC_CFG_PATH=<path to directory>
 export PATH=~/.ghq/github.com/gucc1/fabric-samples/bin:$PATH
 
+rm -rf ./crypto-config
+rm mychannel.tx orgs.genesis.block
+
 # The below assumes you have the relevant code available to generate the cryto-material
 cryptogen generate --config=./crypto-config.yaml
 configtxgen -profile OrgsOrdererGenesis -outputBlock orgs.genesis.block
