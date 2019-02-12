@@ -2,8 +2,8 @@
   "caliper": {
     "blockchain": "fabric",
     "command": {
-      "start": "docker-compose -f network/utm/dev/docker-compose.yaml up -d;sleep 3s",
-      "end": "docker-compose -f network/utm/dev/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+      "start": "docker-compose -f network/utm/dev/docker-compose-24peer.yaml up -d;sleep 3s",
+      "end": "docker-compose -f network/utm/dev/docker-compose-24peer.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
     }
   },
   "fabric": {
@@ -607,7 +607,7 @@
   },
   "info": {
     "Version": "0.1",
-    "Size": "2 Org with 1 Peer",
+    "Size": "24 Org with 1 Peer",
     "Orderer": "Solo",
     "Distribution": "Single Host"
   }
