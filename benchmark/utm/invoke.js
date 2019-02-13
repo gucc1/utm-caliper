@@ -2,7 +2,7 @@
 
 let txIndex = 0;
 let bc, contx;
-const testData = require('./data/users1000.json');
+const testData = require('./data/users10000.json');
 
 module.exports.init = function(blockchain, context, args) {
     bc = blockchain;
