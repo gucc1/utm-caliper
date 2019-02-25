@@ -1,17 +1,17 @@
 /**
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
-*/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 'use strict';
 
@@ -38,7 +38,7 @@ async function run(config_path) {
     const fabric = commUtils.parseYaml(config_path).fabric;
     const channels = fabric.channel;
 
-    if(!channels || channels.length === 0) {
+    if (!channels || channels.length === 0) {
         return Promise.reject(new Error('No channel information found'));
     }
 
@@ -47,10 +47,13 @@ async function run(config_path) {
         let caRootsPath = ORGS.orderer.tls_cacerts;
         let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
         let caroots = Buffer.from(data).toString();
-        utils.setConfigSetting('key-value-store', 'fabric-client/lib/impl/FileKeyValueStore.js');
+        utils.setConfigSetting(
+            'key-value-store',
+            'fabric-client/lib/impl/FileKeyValueStore.js'
+        );
 
         for (const channel of channels) {
-            if(channel.deployed) {
+            if (channel.deployed) {
                 continue;
             }
 
@@ -61,41 +64,52 @@ async function run(config_path) {
             const org = channel.organizations[0];
 
             // Conditional action on TLS enablement
-            if(fabric.network.orderer.url.toString().startsWith('grpcs')){
+            if (fabric.network.orderer.url.toString().startsWith('grpcs')) {
                 const fabricCAEndpoint = fabric.network[org].ca.url;
                 const caName = fabric.network[org].ca.name;
-                const tlsInfo = await e2eUtils.tlsEnroll(fabricCAEndpoint, caName);
+                const tlsInfo = await e2eUtils.tlsEnroll(
+                    fabricCAEndpoint,
+                    caName
+                );
                 client.setTlsClientCertAndKey(tlsInfo.certificate, tlsInfo.key);
             }
 
-            let orderer = client.newOrderer(
-                ORGS.orderer.url,
-                {
-                    'pem': caroots,
-                    'ssl-target-name-override': ORGS.orderer['server-hostname']
-                }
-            );
+            let orderer = client.newOrderer(ORGS.orderer.url, {
+                pem: caroots,
+                'ssl-target-name-override': ORGS.orderer['server-hostname']
+            });
 
             let config = null;
             let signatures = [];
 
-            const store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(org)});
+            const store = await Client.newDefaultKeyValueStore({
+                path: testUtil.storePathForOrg(org)
+            });
             client.setStateStore(store);
             let cryptoSuite = Client.newCryptoSuite();
-            cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(org)}));
+            cryptoSuite.setCryptoKeyStore(
+                Client.newCryptoKeyStore({
+                    path: testUtil.storePathForOrg(org)
+                })
+            );
             client.setCryptoSuite(cryptoSuite);
             await testUtil.getOrderAdminSubmitter(client);
 
             // use the config update created by the configtx tool
-            let envelope_bytes = fs.readFileSync(commUtils.resolvePath(channel.config));
+            let envelope_bytes = fs.readFileSync(
+                commUtils.resolvePath(channel.config)
+            );
             config = client.extractChannelConfig(envelope_bytes);
 
             // sign the config for each org
-            for (const organization of channel.organizations){
+            for (const organization of channel.organizations) {
                 client._userContext = null;
                 await testUtil.getSubmitter(client, true, organization);
                 // sign the config
-                let signature = client.signChannelConfig(config).toBuffer().toString('hex');
+                let signature = client
+                    .signChannelConfig(config)
+                    .toBuffer()
+                    .toString('hex');
                 signatures.push(signature);
             }
 
@@ -110,26 +124,32 @@ async function run(config_path) {
             let tx_id = client.newTransactionID();
             let request = {
                 config: config,
-                signatures : signatures,
-                name : channel.name,
-                orderer : orderer,
-                txId  : tx_id
+                signatures: signatures,
+                name: channel.name,
+                orderer: orderer,
+                txId: tx_id
             };
+
+            console.log(request);
 
             // send create request to orderer
             const result = await client.createChannel(request);
-            if(result.status && result.status === 'SUCCESS') {
+            console.error(result);
+            if (result.status && result.status === 'SUCCESS') {
                 commLogger.info(`Created ${channel.name} successfully`);
-            }
-            else {
-                throw new Error(`Create status for ${channel.name} is ${result.status}`);
+            } else {
+                throw new Error(
+                    `Create status for ${channel.name} is ${result.status}`
+                );
             }
         }
 
         commLogger.info('Sleeping 5s...');
         return await commUtils.sleep(5000);
-    } catch(err) {
-        commLogger.error(`Failed to create channels: ${(err.stack ? err.stack : err)}`);
+    } catch (err) {
+        commLogger.error(
+            `Failed to create channels: ${err.stack ? err.stack : err}`
+        );
         throw err;
     }
 }

@@ -49,12 +49,35 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org1.example.com
               Port: 7051
-            - Host: peer1.org1.example.com
-              Port: 7051
-            - Host: peer2.org1.example.com
-              Port: 7051
+            # - Host: peer1.org1.example.com
+            #   Port: 7051
+            # - Host: peer2.org1.example.com
+            #   Port: 7051
 
     - &Org1
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org1MSP
+
+        # ID to load the MSP definition as
+        ID: Org1MSP
+
+        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp
+
+        AdminPrincipal: Role.ADMIN
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org1.example.com
+              Port: 7051
+            # - Host: peer1.org2.example.com
+            #   Port: 7051
+            # - Host: peer2.org2.example.com
+            #   Port: 7051
+
+    - &Org2
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
         Name: Org2MSP
@@ -72,12 +95,11 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org2.example.com
               Port: 7051
-            - Host: peer1.org2.example.com
-              Port: 7051
-            - Host: peer2.org2.example.com
-              Port: 7051
-
-    - &Org2
+            # - Host: peer1.org3.example.com
+            #   Port: 7051
+            # - Host: peer2.org3.example.com
+            #   Port: 7051
+    - &Org3
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
         Name: Org3MSP
@@ -86,18 +108,444 @@ Organizations:
         ID: Org3MSP
 
         MSPDir: crypto-config/peerOrganizations/org3.example.com/msp
-
         AdminPrincipal: Role.ADMIN
 
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org3MSP.admin', 'Org3MSP.peer', 'Org3MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org3MSP.admin', 'Org3MSP.client', 'Org3MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org3MSP.admin')"
+
+        # leave this flag set to true.
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
             # for cross org gossip communication.  Note, this value is only
             # encoded in the genesis block in the Application section context
             - Host: peer0.org3.example.com
               Port: 7051
-            - Host: peer1.org3.example.com
+    - &Org4
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org4MSP
+
+        # ID to load the MSP definition as
+        ID: Org4MSP
+
+        MSPDir: crypto-config/peerOrganizations/org4.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin', 'Org4MSP.peer', 'Org4MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin', 'Org4MSP.client', 'Org4MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org4.example.com
               Port: 7051
-            - Host: peer2.org3.example.com
+    - &Org5
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org5MSP
+
+        # ID to load the MSP definition as
+        ID: Org5MSP
+
+        MSPDir: crypto-config/peerOrganizations/org5.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin', 'Org5MSP.peer', 'Org5MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin', 'Org5MSP.client', 'Org5MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org5.example.com
+              Port: 7051
+    - &Org6
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org6MSP
+
+        # ID to load the MSP definition as
+        ID: Org6MSP
+
+        MSPDir: crypto-config/peerOrganizations/org6.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org6MSP.admin', 'Org6MSP.peer', 'Org6MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org6MSP.admin', 'Org6MSP.client', 'Org6MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org6MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org6.example.com
+              Port: 7051
+    - &Org7
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org7MSP
+
+        # ID to load the MSP definition as
+        ID: Org7MSP
+
+        MSPDir: crypto-config/peerOrganizations/org7.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org7MSP.admin', 'Org7MSP.peer', 'Org7MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org7MSP.admin', 'Org7MSP.client', 'Org7MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org7MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org7.example.com
+              Port: 7051
+    - &Org8
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org8MSP
+
+        # ID to load the MSP definition as
+        ID: Org8MSP
+
+        MSPDir: crypto-config/peerOrganizations/org8.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org8MSP.admin', 'Org8MSP.peer', 'Org8MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org8MSP.admin', 'Org8MSP.client', 'Org8MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org8MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org8.example.com
+              Port: 7051
+    - &Org9
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org9MSP
+
+        # ID to load the MSP definition as
+        ID: Org9MSP
+
+        MSPDir: crypto-config/peerOrganizations/org9.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org9MSP.admin', 'Org9MSP.peer', 'Org9MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org9MSP.admin', 'Org9MSP.client', 'Org9MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org9MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org9.example.com
+              Port: 7051
+    - &Org10
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org10MSP
+
+        # ID to load the MSP definition as
+        ID: Org10MSP
+
+        MSPDir: crypto-config/peerOrganizations/org10.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org10MSP.admin', 'Org10MSP.peer', 'Org10MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org10MSP.admin', 'Org10MSP.client', 'Org10MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org10MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org10.example.com
+              Port: 7051
+    - &Org11
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org11MSP
+
+        # ID to load the MSP definition as
+        ID: Org11MSP
+
+        MSPDir: crypto-config/peerOrganizations/org11.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org11MSP.admin', 'Org11MSP.peer', 'Org11MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org11MSP.admin', 'Org11MSP.client', 'Org11MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org11MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org11.example.com
+              Port: 7051
+    - &Org12
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org12MSP
+
+        # ID to load the MSP definition as
+        ID: Org12MSP
+
+        MSPDir: crypto-config/peerOrganizations/org12.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org12MSP.admin', 'Org12MSP.peer', 'Org12MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org12MSP.admin', 'Org12MSP.client', 'Org12MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org12MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org12.example.com
+              Port: 7051
+    - &Org13
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org13MSP
+
+        # ID to load the MSP definition as
+        ID: Org13MSP
+
+        MSPDir: crypto-config/peerOrganizations/org13.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org13MSP.admin', 'Org13MSP.peer', 'Org13MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org13MSP.admin', 'Org13MSP.client', 'Org13MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org13MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org13.example.com
+              Port: 7051
+    - &Org14
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org14MSP
+
+        # ID to load the MSP definition as
+        ID: Org14MSP
+
+        MSPDir: crypto-config/peerOrganizations/org14.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org14MSP.admin', 'Org14MSP.peer', 'Org14MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org14MSP.admin', 'Org14MSP.client', 'Org14MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org14MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org14.example.com
+              Port: 7051
+    - &Org15
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org15MSP
+
+        # ID to load the MSP definition as
+        ID: Org15MSP
+
+        MSPDir: crypto-config/peerOrganizations/org15.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org15MSP.admin', 'Org15MSP.peer', 'Org15MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org15MSP.admin', 'Org15MSP.client', 'Org15MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org15MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org15.example.com
+              Port: 7051
+    - &Org16
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org16MSP
+
+        # ID to load the MSP definition as
+        ID: Org16MSP
+
+        MSPDir: crypto-config/peerOrganizations/org16.example.com/msp
+        AdminPrincipal: Role.ADMIN
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org16MSP.admin', 'Org16MSP.peer', 'Org16MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org16MSP.admin', 'Org16MSP.client', 'Org16MSP.peer')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org16MSP.admin')"
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org16.example.com
               Port: 7051
 
 ################################################################################
@@ -181,6 +629,20 @@ Profiles:
                     - *Org0
                     - *Org1
                     - *Org2
+                    - *Org3
+                    - *Org4
+                    - *Org5
+                    - *Org6
+                    - *Org7
+                    - *Org8
+                    - *Org9
+                    - *Org10
+                    - *Org11
+                    - *Org12
+                    - *Org13
+                    - *Org14
+                    - *Org15
+                    - *Org16
     OrgsChannel:
         Consortium: SampleConsortium
         Application:
@@ -189,3 +651,17 @@ Profiles:
                 - *Org0
                 - *Org1
                 - *Org2
+                - *Org3
+                - *Org4
+                - *Org5
+                - *Org6
+                - *Org7
+                - *Org8
+                - *Org9
+                - *Org10
+                - *Org11
+                - *Org12
+                - *Org13
+                - *Org14
+                - *Org15
+                - *Org16
