@@ -58,6 +58,8 @@ Chaincode は`src/contract/fabric/utm/`以下においてある
 - `benchmark/utm/`
 - `network/utm/`
 
+また`results`以下は研究で利用した結果データ
+
 ## Reference
 
 https://github.com/hyperledger/caliper
